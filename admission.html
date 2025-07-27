@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Portal - Wesley College of Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admission-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/wesley-logo.png" alt="Wesley College Logo" height="60">
+                <span class="brand-text">Wesley College of Engineering</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student-applications.html">My Applications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Tracker -->
+    <div class="progress-container">
+        <div class="container">
+            <div class="progress" style="height: 3px;">
+                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+            </div>
+            <div class="step-indicators">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Personal Info</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Academic Details</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Documents</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Review & Submit</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Form Section -->
+            <div class="col-lg-8">
+                <div class="admission-form-wrapper">
+                    <form id="admissionForm" class="admission-form">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step" data-step="1">
+                            <h3 class="form-section-title">Personal Information</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" name="studentName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" name="dob" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" name="phone" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Father's Name</label>
+                                    <input type="text" class="form-control" name="fatherName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mother's Name</label>
+                                    <input type="text" class="form-control" name="motherName" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Address</label>
+                                    <textarea class="form-control" name="address" rows="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Academic Details -->
+                        <div class="form-step" data-step="2" style="display: none;">
+                            <h3 class="form-section-title">Academic Details</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Course</label>
+                                    <select class="form-select" name="course" required>
+                                        <option value="">Select Course</option>
+                                        <option value="B.E Computer Science">B.E Computer Science</option>
+                                        <option value="B.E Mechanical">B.E Mechanical</option>
+                                        <option value="B.E Civil">B.E Civil</option>
+                                        <option value="B.E Electronics">B.E Electronics</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-select" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="General">General</option>
+                                        <option value="OBC">OBC</option>
+                                        <option value="SC">SC</option>
+                                        <option value="ST">ST</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Previous Institution</label>
+                                    <input type="text" class="form-control" name="previousInstitution" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Board/University</label>
+                                    <input type="text" class="form-control" name="board" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Percentage/CGPA</label>
+                                    <input type="number" step="0.01" class="form-control" name="percentage" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Year of Passing</label>
+                                    <input type="number" class="form-control" name="passingYear" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Document Upload -->
+                        <div class="form-step" data-step="3" style="display: none;">
+                            <h3 class="form-section-title">Document Upload</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="upload-box">
+                                        <label class="form-label">Profile Photo</label>
+                                        <input type="file" class="form-control" name="profilePhoto" accept="image/*" required>
+                                        <small class="text-muted">Max size: 2MB, Format: JPG/PNG</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="upload-box">
+                                        <label class="form-label">Academic Certificates (PDF)</label>
+                                        <input type="file" class="form-control" name="certificates" accept=".pdf" required>
+                                        <small class="text-muted">Max size: 5MB, Format: PDF</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Review -->
+                        <div class="form-step" data-step="4" style="display: none;">
+                            <h3 class="form-section-title">Review Your Application</h3>
+                            <div id="reviewContent"></div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation mt-4">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                            <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="col-lg-4">
+                <div class="side-panel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Important Instructions</h5>
+                            <ul class="instruction-list">
+                                <li>Fill all mandatory fields marked with *</li>
+                                <li>Upload clear scanned copies of documents</li>
+                                <li>Verify all details before final submission</li>
+                                <li>Application fee is non-refundable</li>
+                            </ul>
+                            <div class="help-section mt-4">
+                                <h6>Need Help?</h6>
+                                <p>Contact our support team:</p>
+                                <p><i class="fas fa-phone me-2"></i>+91 1234567890</p>
+                                <p><i class="fas fa-envelope me-2"></i>admissions@wesley.edu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'newlogin.html';
+            }
+            
+            // Display user email if available
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                const navbarNav = document.getElementById('navbarNav');
+                const emailElement = document.createElement('span');
+                emailElement.className = 'nav-link text-light';
+                emailElement.textContent = userEmail;
+                navbarNav.querySelector('.navbar-nav').insertBefore(emailElement, document.getElementById('logoutBtn').parentElement);
+            }
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            Swal.fire({
+                title: 'Logout',
+                text: 'Are you sure you want to logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Clear login state
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userEmail');
+                    localStorage.removeItem('loginProvider');
+                    localStorage.removeItem('rememberMe');
+                    
+                    // Redirect to login page
+                    window.location.href = 'newlogin.html';
+                }
+            });
+        });
+
+        // Check login status when page loads
+        window.onload = function() {
+            checkLoginStatus();
+            AOS.init(); // Initialize AOS animations
+        };
+    </script>
+    <script src="admission.js"></script>
+</body>
+</html>

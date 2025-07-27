@@ -1,0 +1,12 @@
+{
+  "name": "college-admission-system",
+  "version": "1.0.0",
+  "description": "College Admission Management System",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0",
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2"
+  }
+}
